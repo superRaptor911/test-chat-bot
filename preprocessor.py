@@ -5,10 +5,34 @@ import os
 
 
 def load_data():
-    txt_loader = DirectoryLoader("./data/", glob="**/*.txt")
-    code_loader = DirectoryLoader("./data/", glob="**/*.py")
+    txt_loader = DirectoryLoader(
+        "./data/", glob="**/*.txt", show_progress=True, use_multithreading=True
+    )
+    py_loader = DirectoryLoader(
+        "./data/", glob="**/*.py", show_progress=True, use_multithreading=True
+    )
 
-    loaders = [txt_loader, code_loader]
+    js_loader = DirectoryLoader(
+        "./data/", glob="**/*.js", show_progress=True, use_multithreading=True
+    )
+
+    ts_loader = DirectoryLoader(
+        "./data/", glob="**/*.ts", show_progress=True, use_multithreading=True
+    )
+
+    tsx_loader = DirectoryLoader(
+        "./data/", glob="**/*.tsx", show_progress=True, use_multithreading=True
+    )
+
+    java_loader = DirectoryLoader(
+        "./data/", glob="**/*.java", show_progress=True, use_multithreading=True
+    )
+
+    kt_loader = DirectoryLoader(
+        "./data/", glob="**/*.kt", show_progress=True, use_multithreading=True
+    )
+
+    loaders = [txt_loader, py_loader, js_loader, ts_loader, tsx_loader, java_loader, kt_loader]
     documents = []
     for loader in loaders:
         documents.extend(loader.load())
